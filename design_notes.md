@@ -5,29 +5,6 @@
 The Organization Management Service is built using **FastAPI** (Python 3.10+) and **MongoDB** (Motor for async driver). It follows a multi-tenant style architecture where each organization has its own logical data separation via dynamic collections.
 
 ### High Level Diagram
-
-```mermaid
-graph TD
-    Client[Client (Web/Mobile)] -->|REST API| API_Gateway[FastAPI Service]
-    API_Gateway -->|Auth| Security[JWT + Bcrypt]
-    API_Gateway -->|Metadata| MasterDB[(MongoDB Master DB)]
-    API_Gateway -->|Dynamic| OrgCollections[(Dynamic Org Collections)]
-    
-    subgraph Database
-    MasterDB
-    OrgCollections
-    end
-    
-    subgraph Service Layer
-    Auth[Authentication]
-    OrgMgmt[Organization Management]
-    end
-    
-    API_Gateway --> OrgMgmt
-    OrgMgmt --> MasterDB
-    OrgMgmt --> OrgCollections
-```
-
 ![Architecture Diagram](architecture_diagram.png)
 
 ## Design Choices
