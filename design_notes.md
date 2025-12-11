@@ -28,6 +28,8 @@ graph TD
     OrgMgmt --> OrgCollections
 ```
 
+![Architecture Diagram](architecture_diagram.png)
+
 ## Design Choices
 
 ### 1. Database - MongoDB
